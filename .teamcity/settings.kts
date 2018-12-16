@@ -26,4 +26,13 @@ version = "2018.2"
 
 project {
     description = "An experiment with using Kotlin DSL to create a build pipeline with TeamCity"
+    buildType {
+        id("HelloWorld")
+        name = "Hello world"
+        steps {
+            script {
+                scriptContent = "echo 'Hello world!'"
+            }
+        }
+    }
 }
