@@ -3,6 +3,7 @@ package patches.buildTypes
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
 import jetbrains.buildServer.configs.kotlin.v2018_2.BuildType
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.powerShell
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
 /*
@@ -11,7 +12,6 @@ To apply the patch, create a buildType with id = 'HelloWorld'
 in the root project, and delete the patch script.
 */
 create(DslContext.projectId, BuildType({
-    templates(RelativeId("TestTemplateConfiguration"))
     id("HelloWorld")
     name = "HelloWorld"
     description = "First Try"
@@ -23,26 +23,26 @@ create(DslContext.projectId, BuildType({
     steps {
         powerShell {
             name = "Build"
-            id = "RUNNER_2"
             scriptMode = script {
                 content = """echo "I am building...""""
             }
         }
         powerShell {
             name = "Test"
-            id = "RUNNER_3"
             scriptMode = script {
                 content = """echo "I am testing...""""
             }
         }
         powerShell {
             name = "Deploy"
-            id = "RUNNER_4"
             scriptMode = script {
                 content = """echo "I am deploying...""""
             }
         }
-        stepsOrder = arrayListOf("RUNNER_2", "RUNNER_3", "RUNNER_4", "RUNNER_5")
+        script {
+            name = "TestTemplateStep"
+            scriptContent = """echo "This is a test template build step""""
+        }
     }
 }))
 
