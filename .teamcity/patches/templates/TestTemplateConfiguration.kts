@@ -2,6 +2,7 @@ package patches.templates
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
 import jetbrains.buildServer.configs.kotlin.v2018_2.Template
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
 /*
@@ -13,5 +14,12 @@ create(DslContext.projectId, Template({
     id("TestTemplateConfiguration")
     name = "TestTemplateConfiguration"
     description = "This is an example of a Template Configuration"
+
+    steps {
+        script {
+            id = "RUNNER_5"
+            scriptContent = """echo "This is a test template build step""""
+        }
+    }
 }))
 
