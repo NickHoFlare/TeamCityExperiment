@@ -42,6 +42,7 @@ create(DslContext.projectId, BuildType({
                 content = """echo "I am deploying...""""
             }
         }
+        stepsOrder = arrayListOf("RUNNER_2", "RUNNER_3", "RUNNER_4", "RUNNER_5")
     }
 }))
 
