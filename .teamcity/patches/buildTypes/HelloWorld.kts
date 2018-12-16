@@ -11,6 +11,7 @@ To apply the patch, create a buildType with id = 'HelloWorld'
 in the root project, and delete the patch script.
 */
 create(DslContext.projectId, BuildType({
+    templates(RelativeId("TestTemplateConfiguration"))
     id("HelloWorld")
     name = "HelloWorld"
     description = "First Try"
@@ -22,18 +23,21 @@ create(DslContext.projectId, BuildType({
     steps {
         powerShell {
             name = "Build"
+            id = "RUNNER_2"
             scriptMode = script {
                 content = """echo "I am building...""""
             }
         }
         powerShell {
             name = "Test"
+            id = "RUNNER_3"
             scriptMode = script {
                 content = """echo "I am testing...""""
             }
         }
         powerShell {
             name = "Deploy"
+            id = "RUNNER_4"
             scriptMode = script {
                 content = """echo "I am deploying...""""
             }
