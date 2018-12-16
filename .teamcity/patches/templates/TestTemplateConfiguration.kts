@@ -17,6 +17,7 @@ create(DslContext.projectId, Template({
 
     steps {
         script {
+            name = "TestTemplateStep"
             id = "RUNNER_5"
             scriptContent = """echo "This is a test template build step""""
         }
