@@ -2,7 +2,6 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
 import jetbrains.buildServer.configs.kotlin.v2018_2.BuildType
-import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.powerShell
 import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2018_2.ui.*
 
@@ -21,18 +20,6 @@ create(DslContext.projectId, BuildType({
     }
 
     steps {
-        powerShell {
-            name = "Test"
-            scriptMode = script {
-                content = """echo "I am testing...""""
-            }
-        }
-        powerShell {
-            name = "Deploy"
-            scriptMode = script {
-                content = """echo "I am deploying...""""
-            }
-        }
         script {
             name = "TestTemplateStep"
             scriptContent = """echo "This is a test template build step""""
