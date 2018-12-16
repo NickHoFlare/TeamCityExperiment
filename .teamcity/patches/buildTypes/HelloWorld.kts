@@ -22,12 +22,6 @@ create(DslContext.projectId, BuildType({
 
     steps {
         powerShell {
-            name = "Build"
-            scriptMode = script {
-                content = """echo "I am building...""""
-            }
-        }
-        powerShell {
             name = "Test"
             scriptMode = script {
                 content = """echo "I am testing...""""
