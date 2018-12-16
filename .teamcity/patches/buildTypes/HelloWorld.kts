@@ -32,6 +32,12 @@ create(DslContext.projectId, BuildType({
                 content = """echo "I am testing...""""
             }
         }
+        powerShell {
+            name = "Test (1)"
+            scriptMode = script {
+                content = """echo "I am testing...""""
+            }
+        }
     }
 }))
 
