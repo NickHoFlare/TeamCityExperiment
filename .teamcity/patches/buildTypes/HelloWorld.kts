@@ -13,5 +13,9 @@ create(DslContext.projectId, BuildType({
     id("HelloWorld")
     name = "HelloWorld"
     description = "First Try"
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
 }))
 
