@@ -28,7 +28,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2018.2"
 
 project {
-    description = "An experiment with using Kotlin DSL to create a build pipeline with TeamCity"
+    description = "An experiment with using Kotlin DSL to create a build pipeline with TeamCity. TEST"
 
     vcsRoot(TeamCityExperimentGitRepo)
 
