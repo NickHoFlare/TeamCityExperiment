@@ -39,6 +39,8 @@ project {
     buildType(HelloWorld)
 
     template(TestTemplateConfiguration)
+
+    subProject(SubprojectTest)
 }
 
 object HelloWorld : BuildType({
@@ -87,6 +89,12 @@ object TestTemplateConfiguration : Template({
             scriptContent = """echo "This is a test template build step""""
         }
     }
+})
+
+object SubprojectTest : Subproject({
+    id("SubprojectTest")
+    name = "SubprojectTest"
+    description = "An example of a subproject in TeamCity"
 })
 
 object TeamCityExperimentGitRepo : GitVcsRoot({
