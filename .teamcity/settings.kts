@@ -91,7 +91,7 @@ object TestTemplateConfiguration : Template({
     }
 })
 
-object SubprojectTest : SubProject({
+object SubprojectTest : Project({
     id("SubprojectTest")
     name = "SubprojectTest"
     description = "An example of a subproject in TeamCity"
